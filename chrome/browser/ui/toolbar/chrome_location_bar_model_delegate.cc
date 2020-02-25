@@ -74,10 +74,7 @@ bool ChromeLocationBarModelDelegate::GetURL(GURL* url) const {
 
 bool ChromeLocationBarModelDelegate::ShouldPreventElision() const {
 #if BUILDFLAG(ENABLE_EXTENSIONS)
-  Profile* const profile = GetProfile();
-  return profile && extensions::ExtensionRegistry::Get(profile)
-                        ->enabled_extensions()
-                        .Contains(kPreventElisionExtensionId);
+  return true;
 #else
   return false;
 #endif
